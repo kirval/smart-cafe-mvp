@@ -1,0 +1,30 @@
+{
+	"input": {
+		"email": {
+			"label": "Email",
+			"placeholder": "user@email.com"
+		},
+		"password": {
+			"label": "Password",
+			"placeholder": "********"
+		},
+		"repeatPassword": {
+			"label": "Repeat password",
+			"placeholder": "********"
+		}
+	},
+	"text": {
+		"title": "Registration",
+		"yesAccount": "Do you havean account?"
+	},
+	"action": {
+		"link": {
+			"forgotPassword": "Forgot password?",
+			"home": "Home"
+		},
+		"button": {
+			"signIn": "sign in",
+			"signUp": "sign up"
+		}
+	}
+}

@@ -1,0 +1,21 @@
+## COMMON
+**/.idea/
+*.iml
+**/.gradle/
+**/build/
+
+# === UI ===
+
+# dependencies
+**/node_modules/
+**/.pnp/
+**.pnp.js
+**/package-lock.json
+
+# misc
+**/.DS_Store
+**/.env.local
+**/.env.development.local
+**/.env.example.local
+**/.env.production.local
+

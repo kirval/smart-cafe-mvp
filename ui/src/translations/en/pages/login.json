@@ -1,0 +1,26 @@
+{
+	"input": {
+		"email": {
+			"label": "Email",
+			"placeholder": "user@email.com"
+		},
+		"password": {
+			"label": "Password",
+			"placeholder": "********"
+		}
+	},
+	"text": {
+		"title": "Sign UP",
+		"noAccount": "Don`t havean account?"
+	},
+	"action": {
+		"link": {
+			"forgotPassword": "Forgot password?",
+			"home": "Home"
+		},
+		"button": {
+			"signIn": "sign in",
+			"signUp": "sign up"
+		}
+	}
+}

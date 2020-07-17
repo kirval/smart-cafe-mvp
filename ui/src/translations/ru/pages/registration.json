@@ -1,0 +1,30 @@
+{
+	"input": {
+		"email": {
+			"label": "Почта",
+			"placeholder": "user@email.com"
+		},
+		"password": {
+			"label": "Пароль",
+			"placeholder": "********"
+		},
+		"repeatPassword": {
+			"label": "Повторить пароль",
+			"placeholder": "********"
+		}
+	},
+	"text": {
+		"title": "Регистрация",
+		"yesAccount": "У вас есть аккаунта?"
+	},
+	"action": {
+		"link": {
+			"forgotPassword": "Забыли пароль?",
+			"home": "Главная"
+		},
+		"button": {
+			"signIn": "Войти",
+			"signUp": "Зарегистрироваться"
+		}
+	}
+}

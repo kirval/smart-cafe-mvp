@@ -1,0 +1,6 @@
+{
+	"required": "Required",
+	"email": "Invalid email address",
+	"password": "Invalid password",
+	"repeatPassword": "Password do not match"
+}

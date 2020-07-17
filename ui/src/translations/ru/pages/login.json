@@ -1,0 +1,26 @@
+{
+	"input": {
+		"email": {
+			"label": "Почта",
+			"placeholder": "user@email.com"
+		},
+		"password": {
+			"label": "Пароль",
+			"placeholder": "********"
+		}
+	},
+	"text": {
+		"title": "Вход",
+		"noAccount": "У вас нет аккаунта?"
+	},
+	"action": {
+		"link": {
+			"forgotPassword": "Забыли пароль?",
+			"home": "Главная"
+		},
+		"button": {
+			"signIn": "Войти",
+			"signUp": "Зарегистрироваться"
+		}
+	}
+}
