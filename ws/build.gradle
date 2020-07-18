@@ -1,0 +1,45 @@
+plugins {
+    id "org.springframework.boot" version "$springBootVersion"
+    id "io.spring.dependency-management" version "$springDependencyManagementPluginVersion"
+    id "java"
+}
+
+group = "sc"
+version = "0.0.1"
+
+sourceCompatibility = "14"
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+compileJava.options.compilerArgs = [
+        '-Amapstruct.unmappedTargetPolicy=IGNORE',
+        '-Amapstruct.defaultComponentModel=spring'
+]
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly("org.mapstruct:mapstruct-jdk8:$mapstructVersion")
+    annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
+
+    compileOnly("org.projectlombok:lombok:$lombokVersion")
+    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.postgresql:postgresql")
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
+        exclude group: "org.junit.vintage", module: "junit-vintage-engine"
+    }
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.mockito:mockito-junit-jupiter")
+}
+
+test {
+    onlyIf {
+        !project.hasProperty("skipTest")
+    }
+    useJUnitPlatform()
+}

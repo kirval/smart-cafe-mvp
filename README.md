@@ -1,17 +1,11 @@
 ### RUN POSTGRES DOCKER CONTAINER
 
 ```
-docker run -d --restart unless-stopped -p 5432:5432 --name sc-postgres -e POSTGRES_DB=smart-cafe -e POSTGRES_USER=user -e POSTGRES_PASSWORD=password postgres:12
+docker run -d --restart unless-stopped -p 5432:5432 --name sc-mvp-postgres -e POSTGRES_DB=sc-mvp -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:12
 ```
 
-### RUN REDIS DOCKER CONTAINER
+### HOW TO RUN
 
-```
-docker run -d --restart unless-stopped -p 6379:6379 --name sc-redis-session-cache redis:6
-```
-
-### ВАЖНО!
-1. При локальном запуске, везде (ajax запросы, адресная строка браузера и тд) 
-вместо `localhost` использовать `127.0.0.1`. 
-Это нужно для того, чтобы браузер правильно выставлял куки и работал CORS.
-
+1. Default (with tests): ```gradlew clean build bootRun ```
+2. Skipping tests: ```gradlew clean build bootRun -PskipTest```
+2. Tests only: ```gradlew clean test```

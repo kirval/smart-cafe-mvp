@@ -1,0 +1,36 @@
+spring:
+
+  #
+  # DATASOURCE CONFIG
+  #
+  datasource:
+    sc:
+      host: ${SC_HOST:localhost}
+      port: ${SC_PORT:5432}
+      currentSchema: ${SC_SCHEMA:sc-mvp}
+      db: ${SC_DB:sc-mvp}
+    url: jdbc:postgresql://${spring.datasource.sc.host}:${spring.datasource.sc.port}/${spring.datasource.sc.db}?currentSchema=${spring.datasource.sc.currentSchema}
+    driver-class-name: org.postgresql.Driver
+    username: ${SC_USER:postgres}
+    password: ${SC_PASSWORD:postgres}
+
+  #
+  # HIBERNATE CONFIG
+  #
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        default_schema: ${spring.datasource.sc.currentSchema}
+    show-sql: true
+
+#
+# LOGGING CONFIG
+#
+logging:
+  level:
+    sc: DEBUG
+    org.springframework.web.servlet.mvc.method: ERROR
+    org.springframework.security: DEBUG
