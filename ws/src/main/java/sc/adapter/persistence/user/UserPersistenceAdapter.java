@@ -15,4 +15,6 @@ public class UserPersistenceAdapter implements UserPersistencePort {
     public User saveUser(User user) {
         return null;
     }
+
+
 }
