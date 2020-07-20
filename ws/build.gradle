@@ -37,6 +37,8 @@ dependencies {
     }
     testImplementation("org.junit.jupiter:junit-jupiter-engine")
     testImplementation("org.mockito:mockito-junit-jupiter")
+    testImplementation("org.postgresql:postgresql")
+
 }
 
 test {

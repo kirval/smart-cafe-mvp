@@ -45,12 +45,15 @@ class RegisterUserUseCaseUnitTest {
                 .setRoles(new HashSet<>(Collections.singletonList(new Role())));
 
         when(userPersistenceAdapter.saveUser(userToSave))
-                .thenReturn(new User()
-                        .setId(userToSave.getId())
-                        .setEmail(userToSave.getEmail())
-                        .setPhone(userToSave.getPhone())
-                        .setPassword(userToSave.getPassword())
-                        .setRoles(userToSave.getRoles()));
+                .thenAnswer(invocation -> {
+                    User userArg = invocation.getArgument(0);
+                    return new User()
+                            .setId(userArg.getId())
+                            .setEmail(userArg.getEmail())
+                            .setPhone(userArg.getPhone())
+                            .setPassword(userArg.getPassword())
+                            .setRoles(userArg.getRoles());
+                });
 
         User savedUser = registerUserUseCase.registerUser(userToSave);
 

@@ -9,11 +9,13 @@ import sc.core.user.domain.User;
 @RequiredArgsConstructor
 public class UserPersistenceAdapter implements UserPersistencePort {
 
-//    private final UserRepository repository;
+    private final UserRepository repository;
+    private final UserJpaMapper mapper;
 
     @Override
     public User saveUser(User user) {
-        return null;
+        return mapper.toDomainEntity(
+                repository.save(mapper.toJpaEntity(user)));
     }
 
 

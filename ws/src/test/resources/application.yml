@@ -1,0 +1,41 @@
+spring:
+
+  test:
+    database:
+      replace: none
+  #
+  # DATASOURCE CONFIG
+  #
+  datasource:
+    sc:
+      host: ${SC_HOST:localhost}
+      port: ${SC_PORT:5432}
+      currentSchema: ${SC_TEST_SCHEMA:test}
+      db: ${SC_DB:sc-mvp}
+    url: jdbc:postgresql://${spring.datasource.sc.host}:${spring.datasource.sc.port}/${spring.datasource.sc.db}?currentSchema=${spring.datasource.sc.currentSchema}
+    driver-class-name: org.postgresql.Driver
+    username: ${SC_USER:postgres}
+    password: ${SC_PASSWORD:postgres}
+
+  #
+  # FLYWAY CONFIG
+  #
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://${spring.datasource.sc.host}:${spring.datasource.sc.port}/${spring.datasource.sc.db}
+    schemas: ${spring.datasource.sc.currentSchema}
+    default-schema: ${spring.datasource.sc.currentSchema}
+    user: ${SC_TEST_USER:postgres}
+    password: ${SC_TEST_PASSWORD:postgres}
+    clean-disabled: false
+  #
+  # HIBERNATE CONFIG
+  #
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        default_schema: ${spring.datasource.sc.currentSchema}
+    show-sql: true

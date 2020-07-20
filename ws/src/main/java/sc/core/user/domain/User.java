@@ -12,6 +12,8 @@ import java.util.Set;
 @EmailOrPhoneIsNotBlank
 public class User {
 
+    //todo add validation groups: save -> null, update -> not null.
+    // add related exception in service
     private Long id;
 
     @Email
