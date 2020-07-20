@@ -13,9 +13,15 @@ import sc.core.user.domain.User;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static sc.core.user.RegisterUserUseCaseConstants.*;
+import static sc.core.user.domain.RoleEnum.USER;
 
 @ExtendWith(MockitoExtension.class)
 class RegisterUserUseCaseUnitTest {
@@ -33,10 +39,9 @@ class RegisterUserUseCaseUnitTest {
     @Test
     void saveFullUserWithoutValidation() {
         User userToSave = new User()
-                .setId(1L)
-                .setEmail("test@email.com")
-                .setPhone("+37525222222")
-                .setPassword("password")
+                .setEmail(VALID_EMAIL)
+                .setPhone(VALID_PHONE)
+                .setPassword(VALID_PASSWORD)
                 .setRoles(new HashSet<>(Collections.singletonList(new Role())));
 
         when(userPersistenceAdapter.saveUser(userToSave))
@@ -50,6 +55,30 @@ class RegisterUserUseCaseUnitTest {
         User savedUser = registerUserUseCase.registerUser(userToSave);
 
         assertEquals(userToSave, savedUser);
+    }
+
+    @Test
+    void settingUserRole() {
+        User userToSave = new User()
+                .setEmail(VALID_EMAIL)
+                .setPassword(VALID_PASSWORD);
+
+        when(userPersistenceAdapter.saveUser(userToSave))
+                .thenAnswer(invocation -> {
+                    User userArg = invocation.getArgument(0);
+                    return new User()
+                            .setId(userArg.getId())
+                            .setEmail(userArg.getEmail())
+                            .setPhone(userArg.getPhone())
+                            .setPassword(userArg.getPassword())
+                            .setRoles(userArg.getRoles());
+                });
+
+        Set<Long> roleIdSet = registerUserUseCase.registerUser(userToSave).getRoles().stream()
+                .map(Role::getId)
+                .collect(Collectors.toSet());
+
+        assertThat(roleIdSet, contains(USER.getId()));
     }
 
 }

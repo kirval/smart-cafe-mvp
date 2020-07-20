@@ -15,6 +15,17 @@ spring:
     password: ${SC_PASSWORD:postgres}
 
   #
+  # FLYWAY CONFIG
+  #
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://${spring.datasource.sc.host}:${spring.datasource.sc.port}/${spring.datasource.sc.db}
+    schemas: ${spring.datasource.sc.currentSchema}
+    default-schema: ${spring.datasource.sc.currentSchema}
+    user: ${SC_USER:postgres}
+    password: ${SC_PASSWORD:postgres}
+
+  #
   # HIBERNATE CONFIG
   #
   jpa:
