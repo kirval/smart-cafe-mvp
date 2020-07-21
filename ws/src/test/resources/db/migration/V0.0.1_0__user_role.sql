@@ -11,7 +11,7 @@ CREATE SEQUENCE role_id_seq START 1000000;
 CREATE TABLE role
 (
     id    BIGINT PRIMARY KEY DEFAULT nextval('role_id_seq'),
-    value TEXT NOT NULL UNIQUE
+    name TEXT NOT NULL UNIQUE
 );
 
 CREATE TABLE user_role

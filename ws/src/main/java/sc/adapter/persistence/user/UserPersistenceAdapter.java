@@ -2,6 +2,8 @@ package sc.adapter.persistence.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import sc.adapter.persistence.user.role.RoleJpa;
+import sc.adapter.persistence.user.role.RoleRepository;
 import sc.core.user.application.port.out.UserPersistencePort;
 import sc.core.user.domain.User;
 
@@ -17,6 +19,5 @@ public class UserPersistenceAdapter implements UserPersistencePort {
         return mapper.toDomainEntity(
                 repository.save(mapper.toJpaEntity(user)));
     }
-
 
 }

@@ -2,7 +2,10 @@ package sc.core.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
 import sc.core.user.application.port.in.RegisterUserUseCase;
 import sc.core.user.domain.Role;
 import sc.core.user.domain.User;
@@ -15,7 +18,9 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static sc.core.user.RegisterUserUseCaseConstants.*;
 
-@SpringBootTest
+@DataJpaTest
+@Import(ValidationAutoConfiguration.class)
+@ComponentScan(basePackages = {"sc.core.user", "sc.adapter.persistence.user", "org.springframework.validation"})
 class RegisterUserUseCaseIntegrationTest {
 
     @Autowired

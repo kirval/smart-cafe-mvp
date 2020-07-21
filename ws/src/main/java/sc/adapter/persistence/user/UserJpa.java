@@ -1,12 +1,17 @@
 package sc.adapter.persistence.user;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import sc.adapter.persistence.user.role.RoleJpa;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
+
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.FetchType.EAGER;
 
 @Data
 @Entity
@@ -32,7 +37,8 @@ public class UserJpa {
     @ManyToMany
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id")})
+            inverseJoinColumns = {@JoinColumn(name = "role_id")},
+            uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "role_id"}))
     private Set<RoleJpa> roles = new HashSet<>();
 
 }
