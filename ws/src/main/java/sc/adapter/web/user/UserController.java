@@ -15,7 +15,7 @@ public class UserController {
     private final UserWebMapper mapper;
 
     @PostMapping("user")
-    public UserDTO registerUser(UserDTO user) {
-        return mapper.toUserDTO(registerUserUseCase.registerUser(mapper.toDomainEntity(user)));
+    public void registerUser(UserDTO user) {
+        registerUserUseCase.registerUser(mapper.toDomainEntity(user));
     }
 }
