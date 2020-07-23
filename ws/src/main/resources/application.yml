@@ -7,7 +7,7 @@ spring:
     sc:
       host: ${SC_HOST:localhost}
       port: ${SC_PORT:5432}
-      currentSchema: ${SC_SCHEMA:sc-mvp}
+      currentSchema: ${SC_SCHEMA:public}
       db: ${SC_DB:sc-mvp}
     url: jdbc:postgresql://${spring.datasource.sc.host}:${spring.datasource.sc.port}/${spring.datasource.sc.db}?currentSchema=${spring.datasource.sc.currentSchema}
     driver-class-name: org.postgresql.Driver
@@ -31,6 +31,8 @@ spring:
   jpa:
     properties:
       hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
         jdbc:
           lob:
             non_contextual_creation: true

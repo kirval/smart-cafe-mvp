@@ -3,8 +3,8 @@ package sc.core.user.application.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import sc.adapter.persistence.user.UserPersistenceAdapter;
 import sc.core.user.application.port.in.RegisterUserUseCase;
+import sc.core.user.application.port.out.UserPersistencePort;
 import sc.core.user.domain.Role;
 import sc.core.user.domain.User;
 
@@ -19,14 +19,14 @@ import static sc.core.user.domain.RoleEnum.USER;
 @RequiredArgsConstructor
 public class UserRegistrationService implements RegisterUserUseCase {
 
-    private final UserPersistenceAdapter userPersistenceAdapter;
+    private final UserPersistencePort userPersistencePort;
 
     @Override
     public User registerUser(@Valid User user) {
         user.setRoles(new HashSet<>(Collections.singletonList(new Role()
                 .setId(USER.getId()))));
 
-        return userPersistenceAdapter.saveUser(user);
+        return userPersistencePort.saveUser(user);
     }
 
 }
