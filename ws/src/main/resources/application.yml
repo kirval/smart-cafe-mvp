@@ -7,8 +7,8 @@ spring:
     sc:
       host: ${SC_HOST:localhost}
       port: ${SC_PORT:5432}
-      currentSchema: ${SC_SCHEMA:sc-mvp}
       db: ${SC_DB:sc-mvp}
+      currentSchema: ${SC_SCHEMA:public}
     url: jdbc:postgresql://${spring.datasource.sc.host}:${spring.datasource.sc.port}/${spring.datasource.sc.db}?currentSchema=${spring.datasource.sc.currentSchema}
     driver-class-name: org.postgresql.Driver
     username: ${SC_USER:postgres}

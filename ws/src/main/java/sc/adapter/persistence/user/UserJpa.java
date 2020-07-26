@@ -24,9 +24,6 @@ public class UserJpa {
     @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
-    @Column(name = "email", unique = true)
-    private String email;
-
     @Column(name = "phone", unique = true)
     private String phone;
 

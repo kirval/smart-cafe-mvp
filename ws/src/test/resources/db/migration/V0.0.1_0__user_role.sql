@@ -2,7 +2,6 @@ CREATE SEQUENCE user_id_seq START 1000000;
 CREATE TABLE "user"
 (
     id       BIGINT PRIMARY KEY DEFAULT nextval('user_id_seq'),
-    email    TEXT UNIQUE,
     phone    TEXT UNIQUE,
     password TEXT NOT NULL
 );

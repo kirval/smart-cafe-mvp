@@ -1,30 +1,27 @@
 package sc.core.user.domain;
 
 import lombok.Data;
-import sc.core.user.validation.EmailOrPhoneIsNotBlank;
+import sc.common.validation.group.Create;
+import sc.common.validation.group.Update;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.validation.groups.ConvertGroup;
+import javax.validation.groups.Default;
 import java.util.Set;
 
 @Data
-@EmailOrPhoneIsNotBlank
 public class User {
 
-    //todo add validation groups: save -> null, update -> not null.
-    // add related exception in service
+    @Null(groups = Create.class)
+    @NotNull(groups = Update.class)
     private Long id;
 
-    @Email
-    private String email;
+    @Valid
+    @ConvertGroup(from = Create.class, to = Default.class)
+    private Credentials credentials;
 
-    @Pattern(regexp = "^\\+375(?:[0-9]{4,12})$")
-    private String phone;
-
-    @NotBlank
-    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*=_+])(?=\\S+$).{8,16}$")
-    private String password;
     private Set<Role> roles;
 
 }
