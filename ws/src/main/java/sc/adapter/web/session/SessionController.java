@@ -13,10 +13,10 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import static org.springframework.security.web.context.HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY;
-import static sc.adapter.web.session.SessionConstants.SESSION;
+import static sc.adapter.web.session.SessionConstants.SESSION_ENDPOINT;
 
 @RestController
-@RequestMapping(SESSION)
+@RequestMapping(SESSION_ENDPOINT)
 @RequiredArgsConstructor
 public class SessionController {
 

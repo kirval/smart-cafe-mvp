@@ -1,6 +1,6 @@
 package sc.adapter.web;
 
-public class WebCommonConstants {
+public class CommonConstants {
 
     public static final String API = "/api";
 

@@ -14,8 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import sc.configuration.security.userDetails.CustomUserDetailsService;
 
 import static org.springframework.security.config.BeanIds.AUTHENTICATION_MANAGER;
-import static sc.adapter.web.session.SessionConstants.SESSION;
-import static sc.configuration.security.SecurityConstants.REGISTRATION_ENDPOINT;
+import static sc.adapter.web.session.SessionConstants.SESSION_ENDPOINT;
+import static sc.adapter.web.user.UserConstants.USER_ENDPOINT;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
@@ -36,8 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable() //todo configure crsf
             .authorizeRequests()
                 .antMatchers(HttpMethod.POST,
-                        REGISTRATION_ENDPOINT,
-                        SESSION)
+                        USER_ENDPOINT,
+                        SESSION_ENDPOINT)
                     .anonymous()
                 .anyRequest()
                     .authenticated();

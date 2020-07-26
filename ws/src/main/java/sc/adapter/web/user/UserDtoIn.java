@@ -9,11 +9,12 @@ import javax.validation.constraints.NotBlank;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserDTO {
+public class UserDtoIn {
 
     @NotBlank
     private String phone;
 
     @NotBlank
     private String password;
+
 }
