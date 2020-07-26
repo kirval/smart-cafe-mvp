@@ -4,14 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
 
-    private String email;
-
+    @NotBlank
     private String phone;
 
+    @NotBlank
     private String password;
 }
