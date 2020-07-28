@@ -16,6 +16,7 @@ import sc.configuration.security.userDetails.CustomUserDetailsService;
 import static org.springframework.security.config.BeanIds.AUTHENTICATION_MANAGER;
 import static sc.adapter.web.session.SessionConstants.SESSION_ENDPOINT;
 import static sc.adapter.web.user.UserConstants.USER_ENDPOINT;
+import static sc.configuration.security.CorsConfig.corsConfigurationSource;
 import static sc.configuration.swagger.SwaggerConstants.SWAGGER_ENDPOINTS_SECURITY_WHITELIST;
 
 @EnableWebSecurity
@@ -34,6 +35,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //@formatter:off
         http
+            .cors()
+                .configurationSource(corsConfigurationSource())
+                .and()
             .csrf()
                 .disable() //todo configure crsf
             .authorizeRequests()
