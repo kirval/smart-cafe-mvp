@@ -36,17 +36,17 @@ public class SecurityDevConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //@formatter:off
         http
-                .csrf()
-                .disable() //todo configure crsf
-                .authorizeRequests()
+            .csrf()
+                .disable() //todo configure csrf
+            .authorizeRequests()
                 .antMatchers(HttpMethod.POST,
                         USER_ENDPOINT,
                         SESSION_ENDPOINT)
-                .anonymous()
+                    .anonymous()
                 .antMatchers(SWAGGER_ENDPOINTS_SECURITY_WHITELIST)
-                .permitAll()
+                    .permitAll()
                 .anyRequest()
-                .authenticated();
+                    .authenticated();
         //@formatter:on
     }
 

@@ -36,15 +36,15 @@ public class SecurityProdConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         //@formatter:off
         http
-                .csrf()
+            .csrf()
                 .disable() //todo configure crsf
-                .authorizeRequests()
+            .authorizeRequests()
                 .antMatchers(HttpMethod.POST,
                         USER_ENDPOINT,
                         SESSION_ENDPOINT)
-                .anonymous()
+                    .anonymous()
                 .anyRequest()
-                .authenticated();
+                    .authenticated();
         //@formatter:on
     }
 

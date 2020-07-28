@@ -1,15 +1,10 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="CLEAN BUILD PROD" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
-      <option name="env">
-        <map>
-          <entry key="SPRING_PROFILES_ACTIVE" value="prod" />
-        </map>
-      </option>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$/ws" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="-PskipTest" />
+      <option name="scriptParameters" value="-PskipTest -PactiveProfile=prod" />
       <option name="taskDescriptions">
         <list />
       </option>
