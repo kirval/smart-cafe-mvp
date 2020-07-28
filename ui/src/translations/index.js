@@ -6,18 +6,18 @@ import ru from './ru';
 import en from './en';
 
 i18n
-	.use(LanguageDetector)
-	.use(initReactI18next)
-	.init({
-		fallbackLng: 'en',
-		debug: true,
-		interpolation: {
-			escapeValue: false, // not needed for react as it escapes by default
-		},
-		resources: {
-			en,
-			ru,
-		},
-	});
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: 'en',
+    debug: true,
+    interpolation: {
+      escapeValue: false, // not needed for react as it escapes by default
+    },
+    resources: {
+      en,
+      ru,
+    },
+  });
 
 export default i18n;

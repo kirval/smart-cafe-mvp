@@ -1,4 +1,4 @@
 export const FIELDS = {
-    USERNAME: 'username',
-    PASSWORD: 'password'
-}
+  USERNAME: 'phone',
+  PASSWORD: 'password',
+};

@@ -1,12 +1,20 @@
-export const singIn = (state) => {
-	state.fetching = true;
+export const signIn = (state) => {
+  state.fetching = true;
 };
 
-export const singInSuccess = (state, action) => {
-	state.user = action.payload;
-	state.fetching = false;
+export const signInSuccess = (state) => {
+  state.fetching = false;
+  state.loggingIn = true;
+};
+
+export const signUp = (state) => {
+  state.fetching = true;
+};
+
+export const signUpSuccess = (state) => {
+  state.fetching = false;
 };
 
 export const failed = (state) => {
-    state.fetching = false;
+  state.fetching = false;
 };

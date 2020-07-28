@@ -3,18 +3,18 @@ import { useContext } from 'react';
 import { ThemeContext } from './';
 
 const useTheme = () => {
-	const [theme, setTheme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
-	const changeTheme = (theme) => {
-		localStorage.setItem('theme', theme);
-		setTheme(theme);
-	};
+  const changeTheme = (theme) => {
+    localStorage.setItem('theme', theme);
+    setTheme(theme);
+  };
 
-	const toggleTheme = () => {
-		changeTheme(theme === 'light' ? 'dark' : 'light');
-	};
+  const toggleTheme = () => {
+    changeTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
-	return [theme, toggleTheme];
+  return [theme, toggleTheme];
 };
 
 export default useTheme;

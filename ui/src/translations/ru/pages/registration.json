@@ -1,15 +1,11 @@
 {
 	"input": {
-		"email": {
-			"label": "Почта",
-			"placeholder": "user@email.com"
+		"phone": {
+			"label": "Номер телефона",
+			"placeholder": "+375 (33) 601-67-42"
 		},
 		"password": {
 			"label": "Пароль",
-			"placeholder": "********"
-		},
-		"repeatPassword": {
-			"label": "Повторить пароль",
 			"placeholder": "********"
 		}
 	},

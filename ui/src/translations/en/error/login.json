@@ -1,5 +1,5 @@
 {
 	"required": "Required",
-	"email": "Invalid email address",
+	"phone": "Invalid phone number",
 	"password": "Invalid password"
 }

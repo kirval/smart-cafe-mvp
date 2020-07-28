@@ -1,0 +1,4 @@
+export default {
+  LOGIN_FORM: 'LOGIN_FORM',
+  REGISTRATION_FORM: 'REGISTRATION_FORM',
+};
