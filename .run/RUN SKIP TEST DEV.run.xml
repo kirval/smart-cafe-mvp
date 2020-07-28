@@ -1,15 +1,15 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="CLEAN BUILD PROD" type="GradleRunConfiguration" factoryName="Gradle">
+  <configuration default="false" name="RUN SKIP TEST DEV" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="env">
         <map>
-          <entry key="SPRING_PROFILES_ACTIVE" value="prod" />
+          <entry key="SPRING_PROFILES_ACTIVE" value="dev" />
         </map>
       </option>
       <option name="executionName" />
       <option name="externalProjectPath" value="$PROJECT_DIR$/ws" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="-PskipTest" />
+      <option name="scriptParameters" value="-PskipTest " />
       <option name="taskDescriptions">
         <list />
       </option>
@@ -17,6 +17,7 @@
         <list>
           <option value="clean" />
           <option value="build" />
+          <option value="bootRun" />
         </list>
       </option>
       <option name="vmOptions" value="" />
