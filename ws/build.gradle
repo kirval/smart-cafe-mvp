@@ -21,6 +21,16 @@ repositories {
     mavenCentral()
 }
 
+if (!project.hasProperty("profile")) {
+    ext.profile = "default"
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            activeProfile: profile
+    ]
+}
+
 dependencies {
     compileOnly("org.mapstruct:mapstruct-jdk8:$mapstructVersion")
     annotationProcessor("org.mapstruct:mapstruct-processor:$mapstructVersion")
@@ -57,13 +67,4 @@ test {
     useJUnitPlatform()
 }
 
-if (!project.hasProperty("activeProfile")) {
-    ext.profile = "default"
-}
-
-processResources {
-    filter ReplaceTokens, tokens: [
-            activeProfiles: activeProfile
-    ]
-}
 
