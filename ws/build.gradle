@@ -1,3 +1,5 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id "org.springframework.boot" version "$springBootVersion"
     id "io.spring.dependency-management" version "$springDependencyManagementPluginVersion"
@@ -17,6 +19,16 @@ compileJava.options.compilerArgs = [
 
 repositories {
     mavenCentral()
+}
+
+if (!project.hasProperty("profile")) {
+    ext.profile = "default"
+}
+
+processResources {
+    filter ReplaceTokens, tokens: [
+            activeProfile: profile
+    ]
 }
 
 dependencies {
@@ -54,3 +66,5 @@ test {
     }
     useJUnitPlatform()
 }
+
+

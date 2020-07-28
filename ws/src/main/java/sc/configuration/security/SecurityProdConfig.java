@@ -2,6 +2,7 @@ package sc.configuration.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,7 +25,8 @@ import static sc.configuration.swagger.SwaggerConstants.SWAGGER_ENDPOINTS_SECURI
         prePostEnabled = true
 )
 @RequiredArgsConstructor
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+@Profile("prod")
+public class SecurityProdConfig extends WebSecurityConfigurerAdapter {
 
     private final CustomUserDetailsService userDetailsService;
 
@@ -41,8 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         USER_ENDPOINT,
                         SESSION_ENDPOINT)
                     .anonymous()
-                .antMatchers(SWAGGER_ENDPOINTS_SECURITY_WHITELIST)
-                    .permitAll()
                 .anyRequest()
                     .authenticated();
         //@formatter:on
